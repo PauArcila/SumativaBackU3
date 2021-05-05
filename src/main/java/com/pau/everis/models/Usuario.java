@@ -1,12 +1,15 @@
 package com.pau.everis.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -32,10 +35,12 @@ public class Usuario {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 
+//	// Uno a Muchos
+//	@OneToMany(mappedBy = "ordenCompra", fetch = FetchType.LAZY)
+//	private List<OrdenCompra> compras;
+
 	public Usuario() {
 	}
-	
-	
 
 	public Usuario(String nombre, String apellido, String username, String password) {
 		this.nombre = nombre;
@@ -43,8 +48,6 @@ public class Usuario {
 		this.username = username;
 		this.password = password;
 	}
-
-
 
 	@PrePersist
 	protected void onCreate() {
@@ -95,7 +98,5 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
 
 }

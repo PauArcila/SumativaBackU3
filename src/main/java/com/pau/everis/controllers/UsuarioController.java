@@ -18,8 +18,8 @@ public class UsuarioController {
 	@Autowired
 	UsuarioService userService;
 	
-	@Autowired
-	UsuarioRepository userRepo;
+//	@Autowired
+//	UsuarioRepository userRepo;
 	
 	@RequestMapping("/muestraFormulario")
 	public String muestraFormulario(Model model) {
@@ -50,7 +50,6 @@ public class UsuarioController {
 			String mensaje = "Usuario registrado correctamente";
 			model.addAttribute("mensaje", mensaje);
 		}
-		
 		return "redirect:/";//"NewFile.jsp"
 	}
 	
