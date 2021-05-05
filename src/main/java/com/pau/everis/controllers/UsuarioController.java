@@ -38,8 +38,19 @@ public class UsuarioController {
 		user.setUsername(usuario.getUsername());
 		user.setPassword(usuario.getPassword());
 		System.out.println("nombre desde el procesaFormulario: " + usuario.getNombre());
-		userService.addUsuario(usuario);
-
+	
+		if((usuario.getNombre().isEmpty() || usuario.getApellido().isEmpty() )
+		||( usuario.getUsername().isEmpty() || usuario.getPassword().isEmpty())) {
+			System.out.println("Uno o más datos nulos: " + usuario.getNombre());
+			String mensaje = "Debe completar todos los campos";
+			model.addAttribute("mensaje", mensaje);
+		}
+		else {
+			userService.addUsuario(usuario);
+			String mensaje = "Usuario registrado correctamente";
+			model.addAttribute("mensaje", mensaje);
+		}
+		
 		return "redirect:/";//"NewFile.jsp"
 	}
 	

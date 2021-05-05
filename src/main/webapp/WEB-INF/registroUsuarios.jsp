@@ -63,9 +63,12 @@
 					</div>
 
 					<div class="row p-1 my-3 px-2">
-						<button type="submit" id="guardar" class="form-control btn btn-primary">
+						<button type="submit" id="guardar" class="form-control btn btn-primary" onClick="mostrarMensaje()">
 						Guardar Información</button>
 					</div>
+					<script type="text/javascript">function mostrarMensaje(){
+						alert("Información procesada");//+${mensaje}
+					}</script>
 
 				</form:form>
 
