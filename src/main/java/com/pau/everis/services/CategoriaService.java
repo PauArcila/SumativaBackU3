@@ -19,7 +19,7 @@ public class CategoriaService {
 		
 	}
 	
-	public List<Categoria> getAll(){
+	public List<Categoria> getAll(){		
 		return categoriaRepository.findAll();
 	}
 	

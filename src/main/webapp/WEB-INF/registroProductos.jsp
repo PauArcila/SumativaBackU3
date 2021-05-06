@@ -70,10 +70,6 @@
 								<c:forEach var="categoria" items="${categorias}">
 									<option value="<c:out value="${categoria.id}"></c:out>"><c:out value="${categoria.nombre}"></c:out></option>
 								</c:forEach>
-								<!-- option value=0>Seleccione categoría</option>
-								<option value=1>Hogar</option>
-								<option value=2>Electro</option>
-								<option value=3>Ferretería</option-->
 							</form:select> 
 						</div>
 					</div>

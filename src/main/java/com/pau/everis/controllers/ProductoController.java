@@ -45,7 +45,6 @@ public class ProductoController {
 		//obtener la categoria seleccionada para producto y asignarla al atributo del objeto a guardar
 		prd.setCategoria(producto.getCategoria());
 		
-
 		prd.setPrecio(producto.getPrecio());
 		System.out.println("nombre desde el procesaFormulario: " + producto.getNombre());
 	
