@@ -41,7 +41,8 @@ public class Producto {
 	private Date updatedAt;
 
 	//relación 1 a 1 con categoría
-	@OneToOne(mappedBy="producto", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="categoria_id")
 	private Categoria categoria;
 	
 	

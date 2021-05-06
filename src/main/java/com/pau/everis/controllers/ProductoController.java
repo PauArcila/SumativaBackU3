@@ -31,6 +31,8 @@ public class ProductoController {
 		System.out.println("nombreProd" + model.getAttribute("producto"));
 		Producto producto=new Producto();
 		model.addAttribute("producto", producto);
+		model.addAttribute("categorias", categoriaService.getAll());
+		
 		return "registroProductos.jsp";
 	}
 	
@@ -40,13 +42,10 @@ public class ProductoController {
 		Producto prd = new Producto();//nombre, apellido, prdname, password);
 		prd.setNombre(producto.getNombre());
 		prd.setDescripcion(producto.getDescripcion());
-//		List<Categoria> categorias = new ArrayList<Categoria>();
-//		Categoria cat1 = new Categoria(1L, "Hogar");
-//		Categoria cat2 = new Categoria(2L, "Hogar");
-//		Categoria cat3 = new Categoria(3L, "Hogar");	
-//		categorias.add(cat1); categorias.add(cat2); categorias.add(cat3);
-//		
-//		prd.setCategorias(categorias);
+		//obtener la categoria seleccionada para producto y asignarla al atributo del objeto a guardar
+		prd.setCategoria(producto.getCategoria());
+		
+
 		prd.setPrecio(producto.getPrecio());
 		System.out.println("nombre desde el procesaFormulario: " + producto.getNombre());
 	

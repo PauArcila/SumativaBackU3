@@ -3,6 +3,7 @@ package com.pau.everis.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,7 +26,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Categoria {
 
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
 
@@ -37,13 +38,19 @@ public class Categoria {
 	private Date updatedAt;
 	
 	//relación 1 a 1 con producto
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="producto_id")
+	@OneToOne(mappedBy="categoria", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private Producto producto;
 
 	public Categoria() {
 	}
 	
+		
+	public Categoria(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();

@@ -44,7 +44,7 @@
 	<div class="container-fluid">
 		<section class="m-2 p-3">
 			<div class="container align-bottom">
-				<h2 class="text-left fs-3 ">Registro de usuarios: <%out.print(anioActual); %></h2>
+				<h3 class="text-left fs-3 ">Registro de usuarios: <%out.print(anioActual); %></h3>
 				<!-- formulario de registro -->
 				<form:form action="procesaFormulario" modelAttribute="usuario" method="post" id="usuario" name="usuario">
 					<div class="row pt-3 my-2">

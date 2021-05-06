@@ -12,7 +12,7 @@
 	<artifactId>SumativaBackU3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>SumativaBackU2</name>
+	<name>SumativaBackU3</name>
 	<description>Pau project for Sumativa 3</description>
 	<properties>
 		<java.version>1.8</java.version>

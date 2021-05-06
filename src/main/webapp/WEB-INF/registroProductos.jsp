@@ -44,7 +44,7 @@
 	<div class="container-fluid">
 		<section class="m-2 p-3">
 			<div class="container align-bottom">
-				<h2 class="text-left fs-3 ">Registro de productos: <%out.print(anioActual); %></h2>
+				<h3 class="text-left fs-3 ">Registro de productos: <%out.print(anioActual); %></h3>
 				<!-- formulario de registro -->
 				<form:form action="procesaFormulario" modelAttribute="producto" method="post" id="producto" name="producto">
 					<div class="row pt-3 my-2">
@@ -66,20 +66,25 @@
 						</div>
 						<div class="col-6">
 							<form:select class="form-select" path="categoria">
-								<option selected>Seleccione categoría</option>
-								<option value=1l>Hogar</option>
-								<option value=2l>Electro</option>
-								<option value=3l>Ferretería</option>
+								<option value=0>Seleccione categoría</option>
+								<c:forEach var="categoria" items="${categorias}">
+									<option value="<c:out value="${categoria.id}"></c:out>"><c:out value="${categoria.nombre}"></c:out></option>
+								</c:forEach>
+								<!-- option value=0>Seleccione categoría</option>
+								<option value=1>Hogar</option>
+								<option value=2>Electro</option>
+								<option value=3>Ferretería</option-->
 							</form:select> 
 						</div>
 					</div>
-
+					
 					<div class="row p-1 my-3 px-2">
 						<button type="submit" id="guardar" class="form-control btn btn-primary" onClick="mostrarMensaje()">
 						Guardar Información</button>
 					</div>
+				
 					<script type="text/javascript">function mostrarMensaje(){
-						alert("Información procesada");//+${mensaje}
+						alert("Información procesada ");//+${mensaje}
 					}</script>
 
 				</form:form>

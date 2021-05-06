@@ -16,6 +16,7 @@ public class CategoriaService {
 	
 	public void addCategoria(Categoria categoria) {
 		categoriaRepository.save(categoria);
+		
 	}
 	
 	public List<Categoria> getAll(){
@@ -25,4 +26,6 @@ public class CategoriaService {
 	public Categoria getById(Long id) {
 		return categoriaRepository.findById(id).get();
 	}
+	
+	
 }
