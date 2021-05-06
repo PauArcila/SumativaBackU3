@@ -69,14 +69,15 @@
 										<th>Nombre Producto</th>
 										<th>Descripción</th>
 										<th>Precio</th>
+										<th>Acción</th>
 									</thead>
 									<tbody>
 										<c:forEach items="${listaProductos}" var="prods">
 											<tr>
-												<td><c:out value="${prods.getProdId()}"></c:out></td>
-												<td><c:out value="${prods.getProdNombre()}"></c:out></td>
-												<td><c:out value="${prods.getProdDescripcion()}"></c:out></td>
-												<td><c:out value="${prods.getProdPrecio()}"></c:out></td>
+												<td><c:out value="${prods.getId()}"></c:out></td>
+												<td><c:out value="${prods.getNombre()}"></c:out></td>
+												<td><c:out value="${prods.getDescripcion()}"></c:out></td>
+												<td><c:out value="${prods.getPrecio()}"></c:out></td>
 											</tr>
 										</c:forEach>
 									</tbody>
