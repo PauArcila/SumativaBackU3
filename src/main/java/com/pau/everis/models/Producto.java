@@ -3,6 +3,7 @@ package com.pau.everis.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +15,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -38,25 +40,20 @@ public class Producto {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 
-	// M a M con categorías
-	@ManyToMany(fetch = FetchType.LAZY)
-	// tabla relacional
-	@JoinTable(name = "categoria_producto", joinColumns = @JoinColumn(name = "producto_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
-	private List<Categoria> categorias;
-
-	// M a 1 con ordenes de compra
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name="ordenCompra_id")
-//	private OrdenCompra orden;
+	//relación 1 a 1 con categoría
+	@OneToOne(mappedBy="producto", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private Categoria categoria;
+	
+	
+	//relación M a 1 con OC
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="ordenCompra_id")
+	private OrdenCompra ordenCompra;
+	
 	
 	public Producto() {
 	}
-
-	public Producto(String nombre, Float precio, String descripcion) {
-		this.nombre = nombre;
-		this.precio = precio;
-		this.descripcion = descripcion;
-	}
+	
 
 	@PrePersist
 	protected void onCreate() {
@@ -100,12 +97,24 @@ public class Producto {
 		this.descripcion = descripcion;
 	}
 
-	public List<Categoria> getCategorias() {
-		return categorias;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public void setCategorias(List<Categoria> categorias) {
-		this.categorias = categorias;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
+
+
+	public OrdenCompra getOrdenCompra() {
+		return ordenCompra;
+	}
+
+
+	public void setOrdenCompra(OrdenCompra ordenCompra) {
+		this.ordenCompra = ordenCompra;
+	}
+
+	
 
 }

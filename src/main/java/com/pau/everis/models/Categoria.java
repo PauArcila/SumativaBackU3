@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -22,7 +25,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Categoria {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
 
@@ -33,21 +36,24 @@ public class Categoria {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 	
-	// M a M
-	@ManyToMany(fetch = FetchType.LAZY)
-	// tabla relacional
-	@JoinTable(name = "categoria_producto", joinColumns = @JoinColumn(name = "categoria_id"), inverseJoinColumns = @JoinColumn(name = "producto_id"))
-	private List<Producto> productos;
+	//relación 1 a 1 con producto
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="producto_id")
+	private Producto producto;
 
 	public Categoria() {
 	}
-
-	public Categoria(Long id, String nombre, List<Producto> productos) {
-		this.id = id;
-		this.nombre = nombre;
-		this.productos = productos;
+	
+	@PrePersist
+	protected void onCreate() {
+		this.createdAt = new Date();
 	}
 
+	@PreUpdate
+	protected void onUpdate() {
+		this.updatedAt = new Date();
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -64,14 +70,13 @@ public class Categoria {
 		this.nombre = nombre;
 	}
 
-	public List<Producto> getProductos() {
-		return productos;
+	public Producto getProducto() {
+		return producto;
 	}
 
-	public void setProductos(List<Producto> productos) {
-		this.productos = productos;
+	public void setProducto(Producto producto) {
+		this.producto = producto;
 	}
-	
 	
 	
 

@@ -28,9 +28,9 @@
 						<a	class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							Productos </a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="/">Nuevo producto</a></li>
+								<li><a class="dropdown-item" href="#">Nuevo producto</a></li>
 							</ul></li>
-						<li class="nav-item"><a class="nav-link" href="#"
+						<li class="nav-item"><a class="nav-link" href="usuario/muestraFormulario"
 							tabindex="-1" aria-disabled="true">Nuevo usuario</a></li>
 					</ul>
 					<!-- /div-->
@@ -44,29 +44,33 @@
 	<div class="container-fluid">
 		<section class="m-2 p-3">
 			<div class="container align-bottom">
-				<h2 class="text-left fs-3 ">Registro de usuarios: <%out.print(anioActual); %></h2>
+				<h2 class="text-left fs-3 ">Registro de productos: <%out.print(anioActual); %></h2>
 				<!-- formulario de registro -->
-				<form:form action="procesaFormulario" modelAttribute="usuario" method="post" id="usuario" name="usuario">
+				<form:form action="procesaFormulario" modelAttribute="producto" method="post" id="producto" name="producto">
 					<div class="row pt-3 my-2">
 						<div class="col-6">
 							<label for="nom">Nombre</label>
-							<form:input path="nombre" type="text" class="form-control" placeholder="Nombre del Usuario"/><!-- id="nombre" name="nombre" -->
+							<form:input path="nombre" type="text" class="form-control" placeholder="Nombre del Producto"/><!-- id="nombre" name="nombre" -->
 						</div>
 						<div class="col-6">
-							<label for="ape">Apellido</label> 
-							<form:input path="apellido" type="text" id="apellido" name="apellido" 
-							class="form-control" placeholder="Apellido"/>
+							<label for="des">Descripción</label> 
+							<form:input path="descripcion" type="text" id="descripcion" name="descripcion" 
+							class="form-control" placeholder="Descripción"/>
 						</div>
 					</div>
 					<div class="row mb-2">
 						<div class="col-6">
-							<label for="usr">Username</label>
-							 <form:input path="username" type="text" id="username" name="username" class="form-control" placeholder="Username"/>
+							<label for="pre">Precio</label>
+							 <form:input path="precio" type="number" id="precio" name="precio" class="form-control" placeholder="Precio"/>
 							
 						</div>
 						<div class="col-6">
-							<label for="pas">Clave</label> 
-							<form:input path="password" type="password" id="password" name="password" class="form-control" placeholder="Crea una clave"/> <!-- min=100	max=<!%=anioActual%> -->
+							<form:select class="form-select" path="categoria">
+								<option selected>Seleccione categoría</option>
+								<option value=1l>Hogar</option>
+								<option value=2l>Electro</option>
+								<option value=3l>Ferretería</option>
+							</form:select> 
 						</div>
 					</div>
 

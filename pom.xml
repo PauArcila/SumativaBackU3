@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>SumativaBackU2</artifactId>
+	<artifactId>SumativaBackU3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>SumativaBackU2</name>
-	<description>Pau project for Sumativa 2</description>
+	<description>Pau project for Sumativa 3</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>

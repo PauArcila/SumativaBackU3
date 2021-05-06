@@ -25,7 +25,7 @@ public class Usuario {
 	private Long id;
 	private String nombre;
 	private String apellido;
-	private String username;
+	private String email;
 	private String password;
 
 	@Column(updatable = false)
@@ -35,17 +35,18 @@ public class Usuario {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 
-//	// Uno a Muchos
-//	@OneToMany(mappedBy = "ordenCompra", fetch = FetchType.LAZY)
-//	private List<OrdenCompra> compras;
+	//relación 1 a M con órdenes de compra
+	@OneToMany(mappedBy="usuario", fetch=FetchType.LAZY)
+	private List<OrdenCompra> ordenes;
+	
 
 	public Usuario() {
 	}
 
-	public Usuario(String nombre, String apellido, String username, String password) {
+	public Usuario(String nombre, String apellido, String email, String password) {
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.username = username;
+		this.email = email;
 		this.password = password;
 	}
 
@@ -84,11 +85,11 @@ public class Usuario {
 	}
 
 	public String getUsername() {
-		return username;
+		return email;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUsername(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
