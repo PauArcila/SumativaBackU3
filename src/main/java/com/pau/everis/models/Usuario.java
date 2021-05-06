@@ -9,12 +9,17 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
 
 @Entity
 @Table(name = "usuario")
@@ -27,6 +32,10 @@ public class Usuario {
 	private String apellido;
 	private String email;
 	private String password;
+	
+	@Transient
+	private String passwordConfirmation;
+
 
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -35,9 +44,17 @@ public class Usuario {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 
-	//relación 1 a M con órdenes de compra
-	@OneToMany(mappedBy="usuario", fetch=FetchType.LAZY)
+	// relación 1 a M con órdenes de compra
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
 	private List<OrdenCompra> ordenes;
+
+	// muchos a muchos
+	@ManyToMany(fetch = FetchType.LAZY)
+	// tabla relacional
+	@JoinTable(name = "usuarios_roles", // plural
+			joinColumns = @JoinColumn(name = "usuario_id"), 
+			inverseJoinColumns = @JoinColumn(name = "rol_id"))// singular
+    private List<Rol> roles;
 	
 
 	public Usuario() {
@@ -99,5 +116,31 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public String getPasswordConfirmation() {
+		return passwordConfirmation;
+	}
+
+	public void setPasswordConfirmation(String passwordConfirmation) {
+		this.passwordConfirmation = passwordConfirmation;
+	}
+
+	public List<Rol> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Rol> roles) {
+		this.roles = roles;
+	}
+	
+	
+	
+//	public String getPasswordConfirmation() {
+//		return passwordConfirmation;
+//	}
+//
+//	public void setPasswordConfirmation(String passwordConfirmation) {
+//		this.passwordConfirmation = passwordConfirmation;
+//	}
 
 }
