@@ -30,7 +30,7 @@
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li><a class="dropdown-item" href="#">Nuevo producto</a></li>
 							</ul></li>
-						<li class="nav-item"><a class="nav-link" href="usuario/muestraFormulario"
+						<li class="nav-item"><a class="nav-link" href="../usuario/muestraFormulario"
 							tabindex="-1" aria-disabled="true">Nuevo usuario</a></li>
 					</ul>
 					<!-- /div-->
