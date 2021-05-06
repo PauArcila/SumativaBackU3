@@ -61,7 +61,7 @@
 					<div class="row mb-2">
 						<div class="col-6">
 							<label for="pre">Precio</label>
-							 <form:input path="precio" type="number" id="precio" name="precio" class="form-control" placeholder="Precio"/>
+							 <form:input path="precio" type="number" id="precio" name="precio" class="form-control" placeholder="Precio" min="10" max="99999999"/>
 							
 						</div>
 						<div class="col-6">

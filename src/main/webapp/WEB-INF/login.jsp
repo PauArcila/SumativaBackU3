@@ -18,19 +18,25 @@
                         
                         <form id="login-form" class="form" action="ProcesaLogin" method="post">
                             <h3 class="text-center text-info">Login</h3>
-                            <div class="form-group">
+                            <div class="form-group mt-4">
                                 <label for="username" class="text-info">Email:</label><br>
                                 <input type="text" name="nombre" id="nombre" class="form-control" placeholder="username" autofocus required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mt-3">
                                 <label for="password" class="text-info">Password:</label><br>
                                 <input type="password" name="password" id="password" class="form-control" placeholder="contraseña" required>
                             </div>
-                            <div class="form-group">
-                                <input type="submit" name="submit" class="btn btn-info btn-md" value="Ingresar">
+                            <div class="form-group mt-3 d-grid gap-2">
+                                <input type="submit" name="submit" class="btn btn-info" value="Ingresar">
                             </div>
-                            
-                        </form>
+							<div class="row mt-2 text-center">
+								<span id="passwordHelpInline" class="form-text"> ¿No
+									tienes una cuenta?&nbsp; <a href="/usuario/muestraFormulario">Creala acá.</a>
+								</span>
+							</div>
+
+
+						</form>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 package com.pau.everis.controllers;
 import com.pau.everis.models.Login;
 import com.pau.everis.services.LoginService;
+import com.pau.everis.services.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,9 @@ public class LoginController {
 	
 	@Autowired
 	LoginService loginService;
+	
+	@Autowired
+	UsuarioService usrService;
 	
 	@RequestMapping("")
 	public String login() {
@@ -35,18 +39,16 @@ public class LoginController {
 	
 	@RequestMapping("/login")
 	public String login(@RequestParam("email") String email,
-			@RequestParam("password") String password,
-			Model model) {
-		
-		//boolean respuesta = pService.autenticacion(email, password);
-		
-		if(loginService.autenticacion(email, password)) {
+						@RequestParam("password") String password, 
+						Model model) {
+		// boolean respuesta = pService.autenticacion(email, password);
+		usrService.poblarUsuarios();
+		if (loginService.autenticacion(email, password)) {
 			return "index.jsp";
-		}else {
+		} else {
 			model.addAttribute("mensaje", "Datos erroneos");
 			return "login.jsp";
 		}
-		
-		
+
 	}
 }

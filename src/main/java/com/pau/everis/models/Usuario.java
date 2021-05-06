@@ -134,13 +134,5 @@ public class Usuario {
 	}
 	
 	
-	
-//	public String getPasswordConfirmation() {
-//		return passwordConfirmation;
-//	}
-//
-//	public void setPasswordConfirmation(String passwordConfirmation) {
-//		this.passwordConfirmation = passwordConfirmation;
-//	}
 
 }

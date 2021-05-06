@@ -59,14 +59,18 @@
 						</div>
 					</div>
 					<div class="row mb-2">
-						<div class="col-6">
-							<label for="usr">Username</label>
-							 <form:input path="username" type="text" id="username" name="username" class="form-control" placeholder="Username"/>
+						<div class="col-4">
+							<label for="usr">Email</label>
+							 <form:input path="username" type="email" id="username" name="username" class="form-control" placeholder="Username"/>
 							
 						</div>
-						<div class="col-6">
-							<label for="pas">Clave</label> 
-							<form:input path="password" type="password" id="password" name="password" class="form-control" placeholder="Crea una clave"/> <!-- min=100	max=<!%=anioActual%> -->
+						<div class="col-4">
+							<label for="pas">Contraseña</label> 
+							<form:input path="password" type="password" id="password" name="password" class="form-control" placeholder="Crea una clave"/> <!-- min=100	max=<!%=anioActual%> -->					
+						</div>
+						<div class="col-4">
+						<label for="pas">Confirmar contraseña</label> 
+							<form:input path="" type="" id="" name="" class="form-control" placeholder="Confirma tu clave"/> <!-- min=100	max=<!%=anioActual%> -->
 						</div>
 					</div>
 
