@@ -65,6 +65,7 @@
 							
 						</div>
 						<div class="col-6">
+							<label for="cat">Categoría</label>
 							<form:select class="form-select" path="categoria">
 								<option value=0>Seleccione categoría</option>
 								<c:forEach var="categoria" items="${categorias}">

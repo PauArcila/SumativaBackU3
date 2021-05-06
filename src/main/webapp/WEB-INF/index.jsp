@@ -78,6 +78,7 @@
 												<td><c:out value="${prods.getNombre()}"></c:out></td>
 												<td><c:out value="${prods.getDescripcion()}"></c:out></td>
 												<td><c:out value="${prods.getPrecio()}"></c:out></td>
+												<td><button type="button" class="btn btn-outline-info"><i class="fas fa-cart-arrow-down"></i></button>
 											</tr>
 										</c:forEach>
 									</tbody>
@@ -108,6 +109,11 @@
 										</tr>
 									</tbody>
 								</table>
+								<!--fin tabla-->
+								<div class="row p-4">
+									<button type="button" class="btn btn-info">Confirmar Compra</button>
+								</div>
+
 							</div>
 						</div>
 					</div>
