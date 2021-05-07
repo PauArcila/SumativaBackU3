@@ -16,15 +16,15 @@
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="p-5 col-md-12 bg-white rounded shadow-lg">
                         
-                        <form id="login-form" class="form" action="ProcesaLogin" method="post">
+                        <form id="login-form" class="form" action="/usuario/login" method="post">
                             <h3 class="text-center text-info">Login</h3>
                             <div class="form-group mt-4">
                                 <label for="username" class="text-info">Email:</label><br>
-                                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="username" autofocus required>
+                                <input type="text" name="email" id="email" class="form-control" placeholder="Email" autofocus required>
                             </div>
                             <div class="form-group mt-3">
                                 <label for="password" class="text-info">Password:</label><br>
-                                <input type="password" name="password" id="password" class="form-control" placeholder="contraseña" required>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" required>
                             </div>
                             <div class="form-group mt-3 d-grid gap-2">
                                 <input type="submit" name="submit" class="btn btn-info" value="Ingresar">

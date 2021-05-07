@@ -42,7 +42,7 @@ public class LoginController {
 						@RequestParam("password") String password, 
 						Model model) {
 		// boolean respuesta = pService.autenticacion(email, password);
-		usrService.poblarUsuarios();
+		//usrService.poblarUsuarios();
 		if (loginService.autenticacion(email, password)) {
 			return "index.jsp";
 		} else {
