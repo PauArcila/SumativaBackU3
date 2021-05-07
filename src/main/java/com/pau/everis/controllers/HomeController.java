@@ -1,5 +1,7 @@
 package com.pau.everis.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,11 +24,18 @@ public class HomeController {
 	
 	
 	@RequestMapping("/")
-	public String index(Model modelo) {
+	public String index(HttpSession session, Model modelo) {
 		modelo.addAttribute("listaProductos", prodService.getAll());
-		//modelo.addAllAttributes(prodService.getAll());
+		//session.invalidate();
+		session.setAttribute("registrado", 0);
 		return "index.jsp";
 	}
+	
+//	public String index(Model modelo) {
+//		modelo.addAttribute("listaProductos", prodService.getAll());
+//		//modelo.addAllAttributes(prodService.getAll());
+//		return "index.jsp";
+//	}
 	
 	@RequestMapping("/registro")
 	public String registro(@ModelAttribute("usuario") Usuario usuario,

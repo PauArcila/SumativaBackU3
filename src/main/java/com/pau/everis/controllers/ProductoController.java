@@ -31,6 +31,7 @@ public class ProductoController {
 		System.out.println("nombreProd" + model.getAttribute("producto"));
 		Producto producto=new Producto();
 		model.addAttribute("producto", producto);
+		//categoriaService.poblarCategorias();
 		model.addAttribute("categorias", categoriaService.getAll());
 		
 		return "registroProductos.jsp";

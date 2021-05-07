@@ -17,7 +17,8 @@
                     <div id="login-box" class="p-5 col-md-12 bg-white rounded shadow-lg">
                         
                         <form id="login-form" class="form" action="/usuario/login" method="post">
-                            <h3 class="text-center text-info">Login</h3>
+                        	<div class="container text-info align-center text-center"><i class="fas fa-store fa-4x"  "></i></div><!-- style="font-size: 48px; -->
+                            <h4 class="text-center text-info">Login</h4>
                             <div class="form-group mt-4">
                                 <label for="username" class="text-info">Email:</label><br>
                                 <input type="text" name="email" id="email" class="form-control" placeholder="Email" autofocus required>
